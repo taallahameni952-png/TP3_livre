@@ -1,0 +1,74 @@
+<h2 class="mb-4">Modifier un livre</h2>
+
+<form>
+
+  <div class="mb-3">
+
+    <label class="form-label">ID :</label>
+
+    <input
+      type="number"
+      class="form-control"
+      [value]="livre.idLivre"
+      readonly>
+
+  </div>
+
+  <div class="mb-3">
+
+    <label class="form-label">Titre :</label>
+
+    <input
+      type="text"
+      class="form-control"
+      name="titreLivre"
+      [(ngModel)]="livre.titreLivre">
+
+  </div>
+
+  <div class="mb-3">
+
+    <label class="form-label">Auteur :</label>
+
+    <input
+      type="text"
+      class="form-control"
+      name="auteurLivre"
+      [(ngModel)]="livre.auteurLivre">
+
+  </div>
+
+  <div class="mb-3">
+
+    <label class="form-label">Prix :</label>
+
+    <input
+      type="number"
+      class="form-control"
+      name="prixLivre"
+      [(ngModel)]="livre.prixLivre">
+
+  </div>
+
+  <div class="mb-3">
+
+    <label class="form-label">Date de création :</label>
+
+    <input
+      type="date"
+      class="form-control"
+      name="dateCreation"
+      [(ngModel)]="livre.dateCreation">
+
+  </div>
+
+  <button
+    type="button"
+    class="btn btn-success"
+    (click)="updateLivre()">
+
+    Modifier
+
+  </button>
+
+</form>

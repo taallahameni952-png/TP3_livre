@@ -1,0 +1,64 @@
+<h2>Liste des livres</h2>
+
+<table class="table table-bordered">
+
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Titre</th>
+      <th>Auteur</th>
+      <th>Prix</th>
+      <th>Date de création</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    @for (livre of livres; track livre.idLivre) {
+
+      <tr>
+        <td>{{ livre.idLivre }}</td>
+        <td>{{ livre.titreLivre }}</td>
+        <td>{{ livre.auteurLivre }}</td>
+        <td>{{ livre.prixLivre }} DT</td>
+        <td>{{ livre.dateCreation | date:'dd/MM/yyyy' }}</td>
+        <td>
+
+  <button
+    class="btn btn-danger"
+    (click)="supprimerLivre(livre.idLivre!)">
+
+    Supprimer
+
+  </button>
+
+</td>
+<td>
+
+  <a
+    class="btn btn-warning me-2"
+    [routerLink]="['/update-livre', livre.idLivre]">
+
+    Modifier
+
+  </a>
+
+</td>
+      </tr>
+
+    }
+
+    @empty {
+
+      <tr>
+        <td colspan="5">
+          Aucun livre trouvé
+        </td>
+      </tr>
+
+    }
+
+  </tbody>
+
+</table>
