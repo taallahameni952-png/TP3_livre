@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes } from '@angular/router';//définire chemin de navigation
 import { LivreComponent } from './livre/livre';
 import { AddLivreComponent } from './add-livre/add-livre';
 import { UpdateLivreComponent } from './update-livre/update-livre';

@@ -2,9 +2,20 @@
 
 <form>
 
+
+<div class="mb-3">
+  <label class="form-label">ID :</label>
+
+  <input
+    type="number"
+    class="form-control"
+    name="idLivre"
+    [(ngModel)]="livre.idLivre">
+</div>
+
   <div class="mb-3">
     <label class="form-label">Titre :</label>
-
+    
     <input
       type="text"
       class="form-control"
@@ -20,7 +31,7 @@
       type="text"
       class="form-control"
       name="auteurLivre"
-      [(ngModel)]="livre.auteurLivre">
+      [(ngModel)]="livre.auteurLivre"> 
   </div>
 
 
@@ -45,6 +56,23 @@
       [(ngModel)]="livre.dateCreation">
   </div>
 
+
+<div class="mb-3">
+  <label for="type" class="form-label">Type de livre</label>
+
+  <select
+    class="form-select"
+    id="type"
+    name="type"
+    [(ngModel)]="newNomType">
+
+    @for (type of types; track type.nomType) {
+      <option [value]="type.nomType">
+        {{ type.nomType }}
+      </option>
+    }
+  </select>
+</div>
 
   <button
     type="button"

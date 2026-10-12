@@ -50,17 +50,33 @@
 
   </div>
 
-  <div class="mb-3">
+<div class="mb-3">
+  <label class="form-label">Date de création :</label>
 
-    <label class="form-label">Date de création :</label>
+  <input
+    type="date"
+    class="form-control"
+    name="dateCreation"
+    [ngModel]="datePourFormulaire()"
+    (ngModelChange)="changerDate($event)">
+</div>
 
-    <input
-      type="date"
-      class="form-control"
-      name="dateCreation"
-      [(ngModel)]="livre.dateCreation">
+<div class="mb-3">
+  <label for="type" class="form-label">Type de livre</label>
 
-  </div>
+  <select
+    class="form-select"
+    id="type"
+    name="type"
+    [(ngModel)]="updatedNomType">
+
+    @for (type of types; track type.nomType) {
+      <option [value]="type.nomType">
+        {{ type.nomType }}
+      </option>
+    }
+  </select>
+</div>
 
   <button
     type="button"

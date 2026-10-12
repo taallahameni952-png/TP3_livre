@@ -9,7 +9,9 @@
       <th>Auteur</th>
       <th>Prix</th>
       <th>Date de création</th>
+      <th>Type</th>
       <th>Actions</th>
+      
     </tr>
   </thead>
 
@@ -23,6 +25,7 @@
         <td>{{ livre.auteurLivre }}</td>
         <td>{{ livre.prixLivre }} DT</td>
         <td>{{ livre.dateCreation | date:'dd/MM/yyyy' }}</td>
+        <td>{{ livre.type?.nomType }}</td>
         <td>
 
   <button
