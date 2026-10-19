@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { Livre } from '../model/livre.model';
 import { TypeLivre } from '../model/type.model';
-
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -86,4 +86,15 @@ types: TypeLivre[] = [
 consulterType(nom: string): TypeLivre | undefined {
   return this.types.find(type => type.nomType === nom);
 }
+
+listeCategorie(): TypeLivre[] {
+  return this.types;
+}
+
+rechercherParType(nomType: string): Livre[] {
+  return this.listeLivres().filter(
+    livre => livre.type?.nomType === nomType
+  );
+}
+
 }

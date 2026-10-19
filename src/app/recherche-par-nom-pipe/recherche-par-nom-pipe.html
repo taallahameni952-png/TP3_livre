@@ -1,0 +1,42 @@
+
+<div class="container">
+  <h2>Recherche par titre avec un Pipe</h2>
+
+  <input
+    type="text"
+    class="form-control"
+    name="searchTerm"
+    [(ngModel)]="searchTerm"
+    placeholder="Saisir le titre du livre">
+
+  <table class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Prix</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (
+        livre of livres | searchFilter: searchTerm;
+        track livre.idLivre
+      ) {
+        <tr>
+          <td>{{ livre.idLivre }}</td>
+          <td>{{ livre.titreLivre }}</td>
+          <td>{{ livre.auteurLivre }}</td>
+          <td>{{ livre.prixLivre }} DT</td>
+          <td>{{ livre.type?.nomType }}</td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="5">Aucun livre trouvé.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
